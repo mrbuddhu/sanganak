@@ -1,6 +1,7 @@
 import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 
+// Specify that this route should be processed at the edge
 export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
@@ -91,9 +92,9 @@ export async function GET(req: NextRequest) {
         height: 630,
       }
     )
-  } catch (e) {
-    console.error(e)
-    return new Response(`Failed to generate the image`, {
+  } catch (e: any) {
+    console.error(`${e.message}`)
+    return new Response(`Failed to generate the image: ${e.message}`, {
       status: 500,
     })
   }

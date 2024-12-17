@@ -12,6 +12,7 @@ const nextConfig = {
       'hebbkx1anhila5yf.public.blob.vercel-storage.com'
     ],
   },
+  // Remove the experimental runtime configuration
 }
 
 module.exports = nextConfig
